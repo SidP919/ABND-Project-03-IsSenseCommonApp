@@ -41,7 +41,7 @@
     <string name="q5o4">1</string>
     <string name="q5o5">None of the above</string>
 
-    <string name="question6">6- Some months have 30 days, Some have have 31. How many have 28 days?</string>
+    <string name="question6">6- Some months have 30 days, Some have 31. How many have 28 days?</string>
     <string name="q6o1">1</string>
     <string name="q6o2">4</string>
     <string name="q6o3">11</string>
@@ -77,18 +77,34 @@
     <string name="result">Here is your RESULT</string>
     
     <string name="if100Toast">WOW! Excellent</string>
-    <string name="if100">You are really amazing! You got all the questions right! Unbelievable! Majority of people score below 40%! We know this test is really tough and tricky. But you cracked it all! We really bow down to you! Go challenge anyone in the world, you are the one who is gonna win! You are simply unbeatable!</string>
+    <string name="if100">You are really amazing! You got all the questions right!
+        Unbelievable! Majority of people score below 40%! We know this test is really tough and tricky.
+        But you cracked it all! We really bow down to you!
+        Go challenge anyone in the world, you are the one who is gonna win!
+        You are simply unbeatable!</string>
     
     <string name="if8090Toast">Awesome!</string>
     <string name="if8090">Our congratulations because you almost answered all 10 questions correctly!
-You are quite the brain and cannot be confused by tricky questions. You should be really proud of this result you got.</string>
+You are quite the brain and cannot be confused by tricky questions.
+        You should be really proud of this result you got.</string>
 
     <string name="if6070Toast">Good Job!</string>
     <string name="if6070">Good! But, May be you gotta take this test again!
-Wow! Its a really good score. Seriously! Majority of people score below 50%! We know this test is really tough and tricky. You really have a great common sense. But it seems like you weren't careful enough while taking it. You dint expect the questions will be so tricky. But they really are. No problem. Try it again and we are sure you'll be on top. Click Reset to try again. And this time, keep in mind that the questions may be too tricky.</string>
+Wow! Its a really good score. Seriously! Majority of people score below 50%!
+        We know this test is really tough and tricky.
+        You really have a great common sense.
+        But it seems like you weren\'t careful enough while taking it.
+        You dint expect the questions will be so tricky. But they really are.
+        No problem. Try it again and we are sure you\'ll be on top.
+        Click Reset to try again. And this time, keep in mind that the questions may be too tricky.</string>
 
     <string name="if50Toast">Do not be sad</string>
-    <string name="if50">We know this test is really tough and tricky. Majority of people score below 40%! Its might not be exactly because you don't have much common sense. It could be because you took it not so seriously and you weren't careful enough while answering. You dint expect the questions will be so tricky. But they really are. Don't worry! You could try it again and we are sure you'll be on top. Click the Reset to try again. And this time, keep in mind that the questions may be too tricky.</string>
+    <string name="if50">We know this test is really tough and tricky.
+        Majority of people score below 40%! Its might not be exactly because you don\'t have much common sense.
+        It could be because you took it not so seriously and you weren\'t careful enough while answering.
+        You didn\'t expect the questions will be so tricky.
+        But they really are. Don\'t worry! You could try it again and we are sure you\'ll be on top.
+        Click the Reset to try again. And this time, keep in mind that the questions may be too tricky.</string>
     <string name="reset">RESET</string>
 
 </resources>

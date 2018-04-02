@@ -7,6 +7,7 @@
     tools:context="com.example.android.senseiscommon.MainActivity">
 
     <RelativeLayout
+        android:id="@+id/parent_relative_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -19,8 +20,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:background="#f3a6ff"
-            android:layout_margin="4dp"
-            >
+            android:layout_margin="4dp">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -44,6 +44,12 @@
             android:layout_below="@id/your_name_LinearLayout"
             android:orientation="vertical">
 
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bean_common_sense"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -96,7 +102,7 @@
                 android:padding="4dp"
                 android:text=""
                 android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="#b70000" />
+                android:textColor="#ef0000" />
             <RadioGroup
                 android:id="@+id/answer"
                 android:layout_width="match_parent"
@@ -107,31 +113,36 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="4dp"
-                    android:textColor="#0000ff"/>
+                    android:textColor="#0000ff"
+                    android:onClick="checkRB"/>
                 <RadioButton
                     android:id="@+id/op2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="4dp"
-                    android:textColor="#0000ff"/>
+                    android:textColor="#0000ff"
+                    android:onClick="checkRB"/>
                 <RadioButton
                     android:id="@+id/op3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="4dp"
-                    android:textColor="#0000ff"/>
+                    android:textColor="#0000ff"
+                    android:onClick="checkRB"/>
                 <RadioButton
                     android:id="@+id/op4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="4dp"
-                    android:textColor="#0000ff"/>
+                    android:textColor="#0000ff"
+                    android:onClick="checkRB"/>
                 <RadioButton
                     android:id="@+id/op5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="4dp"
-                    android:textColor="#0000ff"/>
+                    android:textColor="#0000ff"
+                    android:onClick="checkRB"/>
             </RadioGroup>
 
             <Button
@@ -162,24 +173,29 @@
                 android:layout_height="wrap_content"
                 android:text="@string/result"
                 android:textColor="#0000ff"/>
+            <ImageView
+                android:id="@+id/result_image"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:scaleType="fitCenter"/>
             <TextView
                 android:id="@+id/summary"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/if100"
+                android:text=""
                 android:textColor="#009700"
                 android:gravity="center"
                 android:textAppearance="?android:textAppearanceMedium"/>
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:textColor="#ffffff"
                 android:background="#ea65ff"
                 android:padding="16dp"
                 android:text="@string/reset"
-                android:textStyle="bold"/>
-
+                android:textStyle="bold"
+                android:onClick="reset"/>
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>
