@@ -1,0 +1,94 @@
+<resources>
+    <string name="app_name">Is Sense Common</string>
+    <string name="your_name">Name:</string>
+    <string name="your_name_hint">Enter your name here</string>
+    <string name="heading1">Can You Answer these 10 Basic Common Sense Questions?</string>
+    <string name="subHeading1">How good is your common sense? Test it with these 10 tricky questions.</string>
+    <string name="start">START QUIZ!</string>
+    <string name="toast_for_name">Enter your name first</string>
+    <string name="submitButton">SUBMIT</string>
+
+    <!-- Questions for the quiz -->
+    <string name="question1" id="1">1- A plane crashes on the United States/Canada border. Where are the survivors buried?</string>
+    <string name="q1o1">They aren\'t</string>
+    <string name="q1o2">The United States</string>
+    <string name="q1o3">Canada</string>
+    <string name="q1o4">On the border</string>
+    <string name="q1o5">None of the above</string>
+
+    <string name="question2">2- What’s the difference between the 2 words: “RACECAR” and “RACECAR” ?</string>
+    <string name="q2o1">They are both spelled wrong!</string>
+    <string name="q2o2">One’s backward</string>
+    <string name="q2o3">All of the above</string>
+    <string name="q2o4">Nothing</string>
+
+    <string name="question3">3- A farmer has 13 cows. A bolt of lightning kills all but 5 of them. How many cows survived?</string>
+    <string name="q3o1">Five</string>
+    <string name="q3o2">Zero</string>
+    <string name="q3o3">Eight</string>
+    <string name="q3o4">Thirteen</string>
+    <string name="q3o5">None of the Above</string>
+
+    <string name="question4">4- You enter a room. You have 1 matchstick. You are about to nearly freeze to death and starve. In the room you find good meat and dough. There is a gas stove, a fireplace with wood, and a lantern. What do you light first?</string>
+    <string name="q4o1">STOVE</string>
+    <string name="q4o2">FIRE PLACE</string>
+    <string name="q4o3">NONE OF ABOVE</string>
+
+    <string name="question5">5- How many times can you take 5 from 25?</string>
+    <string name="q5o1">5</string>
+    <string name="q5o2">4</string>
+    <string name="q5o3">2</string>
+    <string name="q5o4">1</string>
+    <string name="q5o5">None of the above</string>
+
+    <string name="question6">6- Some months have 30 days, Some have have 31. How many have 28 days?</string>
+    <string name="q6o1">1</string>
+    <string name="q6o2">4</string>
+    <string name="q6o3">11</string>
+    <string name="q6o4">12</string>
+    <string name="q6o5">None of the above</string>
+
+    <string name="question7">7- Who makes it has no need for it, who buys it has no use for it. Who uses, can’t see it or feel it. What is it?</string>
+    <string name="q7o1">umm… a present for someone else!</string>
+    <string name="q7o2">A coffin</string>
+    <string name="q7o3">Clothes</string>
+    <string name="q7o4">None of the above</string>
+
+    <string name="question8">8- I am my father’s child, mother’s child, yet nobody’s son ….who/what am I?</string>
+    <string name="q8o1">Shadow</string>
+    <string name="q8o2">Dreams</string>
+    <string name="q8o3">Their pet</string>
+    <string name="q8o4">Their daughter</string>
+    <string name="q8o5">None of the above</string>
+
+    <string name="question9">9)A man is about to be put to death and the judge said the man could choose how his death should be, but he walks out of the room unharmed. What did he choose?</string>
+    <string name="q9o1">He wanted to drown, but there was no river</string>
+    <string name="q9o2">Death by Do-do but there\'s no do-dos (Clever ;))</string>
+    <string name="q9o3">Old age death!</string>
+    <string name="q9o4">None of the above</string>
+
+    <string name="question10">10- Is it legal for a man in California to marry his widow\'s sister?</string>
+    <string name="q10o1">Yes, as long as she is alive.</string>
+    <string name="q10o2">Yes, if the man is from California.</string>
+    <string name="q10o3">You can\'t marry like this in California.</string>
+    <string name="q10o4">No, the man would be dead.</string>
+    <string name="q10o5">None of the above</string>
+    
+    <string name="result">Here is your RESULT</string>
+    
+    <string name="if100Toast">WOW! Excellent</string>
+    <string name="if100">You are really amazing! You got all the questions right! Unbelievable! Majority of people score below 40%! We know this test is really tough and tricky. But you cracked it all! We really bow down to you! Go challenge anyone in the world, you are the one who is gonna win! You are simply unbeatable!</string>
+    
+    <string name="if8090Toast">Awesome!</string>
+    <string name="if8090">Our congratulations because you almost answered all 10 questions correctly!
+You are quite the brain and cannot be confused by tricky questions. You should be really proud of this result you got.</string>
+
+    <string name="if6070Toast">Good Job!</string>
+    <string name="if6070">Good! But, May be you gotta take this test again!
+Wow! Its a really good score. Seriously! Majority of people score below 50%! We know this test is really tough and tricky. You really have a great common sense. But it seems like you weren't careful enough while taking it. You dint expect the questions will be so tricky. But they really are. No problem. Try it again and we are sure you'll be on top. Click Reset to try again. And this time, keep in mind that the questions may be too tricky.</string>
+
+    <string name="if50Toast">Do not be sad</string>
+    <string name="if50">We know this test is really tough and tricky. Majority of people score below 40%! Its might not be exactly because you don't have much common sense. It could be because you took it not so seriously and you weren't careful enough while answering. You dint expect the questions will be so tricky. But they really are. Don't worry! You could try it again and we are sure you'll be on top. Click the Reset to try again. And this time, keep in mind that the questions may be too tricky.</string>
+    <string name="reset">RESET</string>
+
+</resources>
