@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,7 +17,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
+
+    LinearLayout quesAnsLinearLayout, editTextQuesAns, checkBoxQuesAns;
+
+    TextView questionView;
+    RadioButton rb1,rb2,rb3,rb4,rb5,rb6;
+    RadioGroup rg;
+    ImageView im;
+    EditText q3ans;
+    CheckBox cb1, cb2, cb3, cb4;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +35,28 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RelativeLayout layout = findViewById(R.id.parent_relative_layout);
+
+        quesAnsLinearLayout = findViewById(R.id.question_answer);
+        editTextQuesAns = findViewById(R.id.ET_question_answer);
+        checkBoxQuesAns = findViewById(R.id.CB_question_answer);
+
+        questionView = findViewById(R.id.question);
+        rg = findViewById(R.id.answer);
+        rb1 = rg.findViewById(R.id.op1);
+        rb2 = rg.findViewById(R.id.op2);
+        rb3 = rg.findViewById(R.id.op3);
+        rb4 = rg.findViewById(R.id.op4);
+        rb5 = rg.findViewById(R.id.op5);
+        rb6 = rg.findViewById(R.id.decoy);
+        im = findViewById(R.id.result_image);
+
+        q3ans = findViewById(R.id.q3ansEditText);
+        cb1 = findViewById(R.id.cb1);
+        cb2 = findViewById(R.id.cb2);
+        cb3 = findViewById(R.id.cb3);
+        cb4 = findViewById(R.id.cb4);
+
+        //Hides virtual keyboard on a touch anywhere outside EditText View
         layout.setOnTouchListener(new View.OnTouchListener()
         {
             @Override
@@ -36,47 +68,19 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    /**
-     * Hides virtual keyboard
-     */
+    //Code to hide virtual keyboard
     protected void hideSoftKeyboard(View view)
     {
         InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        in.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        if (in != null) {
+            in.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
     }
 
 
     int noOfCorrectAnswers = 0;
     int i = 1;
 
-    public TextView getQues(){
-        TextView questionView = findViewById(R.id.question);
-        return questionView;
-    }
-    public RadioButton getop1(){
-        RadioButton rb = findViewById(R.id.op1);
-        return rb;
-    }
-    public RadioButton getop2(){
-        RadioButton rb = findViewById(R.id.op2);
-        return rb;
-    }
-    public RadioButton getop3(){
-        RadioButton rb = findViewById(R.id.op3);
-        return rb;
-    }
-    public RadioButton getop4(){
-        RadioButton rb = findViewById(R.id.op4);
-        return rb;
-    }
-    public RadioButton getop5(){
-        RadioButton rb = findViewById(R.id.op5);
-        return rb;
-    }
-    public ImageView getResImg(){
-        ImageView im = findViewById(R.id.result_image);
-        return im;
-    }
     /*
     Asks 1st question and shows submit button
      */
@@ -85,20 +89,18 @@ public class MainActivity extends AppCompatActivity {
         if(NameEntered().isEmpty()){
             Toast.makeText(this, getString(R.string.toast_for_name), Toast.LENGTH_SHORT).show();
         }else{
-            Button startButton = findViewById(R.id.start_button);
-            startButton.setVisibility(View.INVISIBLE);
+            LinearLayout mainLayout = findViewById(R.id.main_LinearLayout);
+            mainLayout.setVisibility(View.INVISIBLE);
 
-            LinearLayout quesAnsLinearLayout = findViewById(R.id.question_answer);
             quesAnsLinearLayout.setVisibility(View.VISIBLE);
             Toast.makeText(this, "All the Best, " + NameEntered(), Toast.LENGTH_SHORT).show();
 
-
-            getQues().setText(R.string.question1);
-            getop1().setText(R.string.q1o1);
-            getop2().setText(R.string.q1o2);
-            getop3().setText(R.string.q1o3);
-            getop4().setText(R.string.q1o4);
-            getop5().setText(R.string.q1o5);
+            questionView.setText(R.string.question1);
+            rb1.setText(R.string.q1o1);
+            rb2.setText(R.string.q1o2);
+            rb3.setText(R.string.q1o3);
+            rb4.setText(R.string.q1o4);
+            rb5.setText(R.string.q1o5);
 
         }
     }
@@ -111,140 +113,154 @@ public class MainActivity extends AppCompatActivity {
             switch(i){
                 case 1: {
                     i++;
-                    if(getop1().isChecked()){
+                    if(rb1.isChecked()){
                         ++noOfCorrectAnswers;
-                        getop1().setTextColor(Color.BLUE);
                     }
-                    getQues().setText(R.string.question2);
-                    getop1().setText(R.string.q2o1);
-                    getop2().setText(R.string.q2o2);
-                    getop3().setText(R.string.q2o3);
-                    getop4().setText(R.string.q2o4);
-                    getop5().setVisibility(View.INVISIBLE);
+                    rb6.setChecked(true);
+                    setColorGreen(rb6);
+
+
+                    questionView.setText(R.string.question2);
+                    rb1.setText(R.string.q2o1);
+                    rb2.setText(R.string.q2o2);
+                    rb3.setText(R.string.q2o3);
+                    rb4.setText(R.string.q2o4);
+                    rb5.setVisibility(View.INVISIBLE);
                 }
                 break;
                 case 2: {
 
                     i++;
-                    if(getop2().isChecked()){
+                    if(rb2.isChecked()){
                         ++noOfCorrectAnswers;
-                        getop2().setTextColor(Color.BLUE);
                     }
-                    getQues().setText(R.string.question3);
-                    getop1().setText(R.string.q3o1);
-                    getop2().setText(R.string.q3o2);
-                    getop3().setText(R.string.q3o3);
-                    getop4().setText(R.string.q3o4);
-                    getop5().setVisibility(View.VISIBLE);
-                    getop5().setText(R.string.q3o5);
+                    rb6.setChecked(true);
+                    setColorGreen(rb6);
+
+                    quesAnsLinearLayout.setVisibility(View.INVISIBLE);
+                    editTextQuesAns.setVisibility(View.VISIBLE);
                 }
                 break;
                 case 3: {
                     i++;
-                    if(getop1().isChecked()){
+                    if(Integer.parseInt(q3ans.getText().toString()) == 5){
                         ++noOfCorrectAnswers;
-                        getop1().setTextColor(Color.BLUE);
                     }
-                    getQues().setText(R.string.question4);
-                    getop1().setText(R.string.q4o1);
-                    getop2().setText(R.string.q4o2);
-                    getop3().setText(R.string.q4o3);
-                    getop4().setVisibility(View.INVISIBLE);
-                    getop5().setVisibility(View.INVISIBLE);
+                    q3ans.setText("");
+                    hideSoftKeyboard(view);
+                    editTextQuesAns.setVisibility(View.INVISIBLE);
+                    checkBoxQuesAns.setVisibility(View.VISIBLE);
                 }
                 break;
                 case 4: {
                     i++;
-                    if(getop3().isChecked()){
+                    if(cb1.isChecked() && !(cb2.isChecked()) && !(cb3.isChecked()) && cb4.isChecked()){
                         ++noOfCorrectAnswers;
-                        getop3().setTextColor(Color.BLUE);
                     }
-                    getQues().setText(R.string.question5);
-                    getop1().setText(R.string.q5o1);
-                    getop2().setText(R.string.q5o2);
-                    getop3().setText(R.string.q5o3);
-                    getop4().setVisibility(View.VISIBLE);
-                    getop4().setText(R.string.q5o4);
-                    getop5().setVisibility(View.VISIBLE);
-                    getop5().setText(R.string.q5o5);
+                    setCheckBoxToDefault(cb1);
+                    checkBoxQuesAns.setVisibility(View.INVISIBLE);
+                    quesAnsLinearLayout.setVisibility(View.VISIBLE);
+
+                    questionView.setText(R.string.question5);
+                    rb1.setText(R.string.q5o1);
+                    rb2.setText(R.string.q5o2);
+                    rb3.setText(R.string.q5o3);
+                    rb4.setVisibility(View.VISIBLE);
+                    rb4.setText(R.string.q5o4);
+                    rb5.setVisibility(View.VISIBLE);
+                    rb5.setText(R.string.q5o5);
                 }
                 break;
                 case 5: {
                     i++;
-                    if(getop4().isChecked()){
+                    if(rb4.isChecked()){
                         ++noOfCorrectAnswers;
-                        getop4().setTextColor(Color.BLUE);
                     }
-                    getQues().setText(R.string.question6);
-                    getop1().setText(R.string.q6o1);
-                    getop2().setText(R.string.q6o2);
-                    getop3().setText(R.string.q6o3);
-                    getop4().setText(R.string.q6o4);
-                    getop5().setText(R.string.q6o5);
+                    rb6.setChecked(true);
+                    setColorGreen(rb6);
+
+                    questionView.setText(R.string.question6);
+                    rb1.setText(R.string.q6o1);
+                    rb2.setText(R.string.q6o2);
+                    rb3.setText(R.string.q6o3);
+                    rb4.setText(R.string.q6o4);
+                    rb5.setText(R.string.q6o5);
                 }
                 break;
                 case 6: {
                     i++;
-                    if(getop4().isChecked()){
+                    if(rb4.isChecked()){
                         ++noOfCorrectAnswers;
-                        getop4().setTextColor(Color.BLUE);
                     }
-                    getQues().setText(R.string.question7);
-                    getop1().setText(R.string.q7o1);
-                    getop2().setText(R.string.q7o2);
-                    getop3().setText(R.string.q7o3);
-                    getop4().setText(R.string.q7o4);
-                    getop5().setVisibility(View.INVISIBLE);
+                    rb6.setChecked(true);
+                    setColorGreen(rb6);
+
+                    questionView.setText(R.string.question7);
+                    rb1.setText(R.string.q7o1);
+                    rb2.setText(R.string.q7o2);
+                    rb3.setText(R.string.q7o3);
+                    rb4.setText(R.string.q7o4);
+                    rb5.setVisibility(View.INVISIBLE);
                 }
                 break;
                 case 7: {
                     i++;
-                    if(getop2().isChecked()){
+                    if(rb2.isChecked()){
                         ++noOfCorrectAnswers;
-                        getop2().setTextColor(Color.BLUE);
                     }
-                    getQues().setText(R.string.question8);
-                    getop1().setText(R.string.q8o1);
-                    getop2().setText(R.string.q8o2);
-                    getop3().setText(R.string.q8o3);
-                    getop4().setText(R.string.q8o4);
-                    getop5().setVisibility(View.INVISIBLE);
+                    rb6.setChecked(true);
+                    setColorGreen(rb6);
+
+                    questionView.setText(R.string.question8);
+                    rb1.setText(R.string.q8o1);
+                    rb2.setText(R.string.q8o2);
+                    rb3.setText(R.string.q8o3);
+                    rb4.setText(R.string.q8o4);
+                    rb5.setVisibility(View.INVISIBLE);
                 }
                 break;
                 case 8: {
                     i++;
-                    if(getop4().isChecked()){
+                    if(rb4.isChecked()){
                         ++noOfCorrectAnswers;
-                        getop4().setTextColor(Color.BLUE);
                     }
-                    getQues().setText(R.string.question9);
-                    getop1().setText(R.string.q9o1);
-                    getop2().setText(R.string.q9o2);
-                    getop3().setText(R.string.q9o3);
-                    getop4().setText(R.string.q9o4);
+                    rb6.setChecked(true);
+                    setColorGreen(rb6);
+
+                    questionView.setText(R.string.question9);
+                    rb1.setText(R.string.q9o1);
+                    rb2.setText(R.string.q9o2);
+                    rb3.setText(R.string.q9o3);
+                    rb4.setText(R.string.q9o4);
                 }
                 break;
                 case 9: {
                     i++;
-                    if(getop3().isChecked()){
+                    if(rb3.isChecked()){
                         ++noOfCorrectAnswers;
-                        getop3().setTextColor(Color.BLUE);
+                        rb6.setChecked(true);
                     }
-                    getQues().setText(R.string.question10);
-                    getop1().setText(R.string.q10o1);
-                    getop2().setText(R.string.q10o2);
-                    getop3().setText(R.string.q10o3);
-                    getop4().setText(R.string.q10o4);
-                    getop5().setVisibility(View.VISIBLE);
-                    getop5().setText(R.string.q10o5);
+                    rb6.setChecked(true);
+                    setColorGreen(rb6);
+
+                    questionView.setText(R.string.question10);
+                    rb1.setText(R.string.q10o1);
+                    rb2.setText(R.string.q10o2);
+                    rb3.setText(R.string.q10o3);
+                    rb4.setText(R.string.q10o4);
+                    rb5.setVisibility(View.VISIBLE);
+                    rb5.setText(R.string.q10o5);
                 }
                 break;
             }
         }
         else{
-            if(getop4().isChecked()){
+            if(rb4.isChecked()){
                 ++noOfCorrectAnswers;
             }
+            rb6.setChecked(true);
+            setColorGreen(rb6);
+
             LinearLayout quesAns = findViewById(R.id.question_answer);
             quesAns.setVisibility(View.INVISIBLE);
             LinearLayout result = findViewById(R.id.result);
@@ -252,57 +268,102 @@ public class MainActivity extends AppCompatActivity {
             TextView summary = findViewById(R.id.summary);
             if(noOfCorrectAnswers>7 && noOfCorrectAnswers<10){
                 Toast.makeText(this, getString(R.string.if8090Toast) + "You answered " + noOfCorrectAnswers + " correct answers.", Toast.LENGTH_SHORT).show();
-                getResImg().setImageResource(R.drawable.goodjob);
+                im.setImageResource(R.drawable.goodjob);
                 summary.setText(R.string.if8090);
             }else if(noOfCorrectAnswers==10){
                 Toast.makeText(this, getString(R.string.if100Toast) + "You answered " + noOfCorrectAnswers + " correct answers.", Toast.LENGTH_SHORT).show();
-                getResImg().setImageResource(R.drawable.respect);
+                im.setImageResource(R.drawable.respect);
                 summary.setText(R.string.if100);
             }else if(noOfCorrectAnswers<6){
                 Toast.makeText(this, "You answered " + noOfCorrectAnswers + " correct answers.", Toast.LENGTH_SHORT).show();
                 Toast.makeText(this, getString(R.string.if50Toast), Toast.LENGTH_SHORT).show();
+                im.setImageResource(R.drawable.dontgiveup);
                 summary.setText(R.string.if50);
                 summary.setTextColor(Color.RED);
             }else{
                 Toast.makeText(this, getString(R.string.if6070Toast) + "You answered " + noOfCorrectAnswers + " correct answers.", Toast.LENGTH_SHORT).show();
-                getResImg().setImageResource(R.drawable.goodjob);
+                im.setImageResource(R.drawable.goodjob);
                 summary.setText(R.string.if6070);
             }
         }
     }
 
-    public void checkRB(View view){
-        RadioButton rb = (RadioButton) view;
-        rb.setTextColor(getResources().getColor(R.color.green));
-        if(!rb.equals(getop1())){
-            getop1().setTextColor(Color.BLUE);
+    public void setColorGreen(View view){
+        RadioButton rb = findViewById(rg.getCheckedRadioButtonId());
+        rb.setTextColor(Color.GREEN);
+        rb.setBackgroundColor(Color.WHITE);
+        if(!rb1.equals(rb)){
+            rb1.setTextColor(Color.BLUE);
+            rb1.setBackgroundColor(0);
         }
-        if(!rb.equals(getop2())){
-            getop2().setTextColor(Color.BLUE);
+        if(!rb2.equals(rb)){
+            rb2.setTextColor(Color.BLUE);
+            rb2.setBackgroundColor(0);
         }
-        if(!rb.equals(getop3())){
-            getop3().setTextColor(Color.BLUE);
+        if(!rb3.equals(rb)){
+            rb3.setTextColor(Color.BLUE);
+            rb3.setBackgroundColor(0);
         }
-        if(!rb.equals(getop4())){
-            getop4().setTextColor(Color.BLUE);
+        if(!rb4.equals(rb)){
+            rb4.setTextColor(Color.BLUE);
+            rb4.setBackgroundColor(0);
         }
-        if(!rb.equals(getop5())){
-            getop5().setTextColor(Color.BLUE);
+        if(!rb5.equals(rb)){
+            rb5.setTextColor(Color.BLUE);
+            rb5.setBackgroundColor(0);
+        }
+        if(!rb6.equals(rb)){
+            rb6.setTextColor(Color.BLUE);
+            rb6.setBackgroundColor(0);
         }
     }
 
     public void reset(View view){
         i = 1;
         noOfCorrectAnswers = 0;
-        Button startButton = findViewById(R.id.start_button);
-        startButton.setVisibility(View.VISIBLE);
         LinearLayout result = findViewById(R.id.result);
         result.setVisibility(View.INVISIBLE);
+        LinearLayout mainLayout = findViewById(R.id.main_LinearLayout);
+        mainLayout.setVisibility(View.VISIBLE);
     }
 
     private String NameEntered(){
         EditText nameView = findViewById(R.id.your_name);
         String s = nameView.getText().toString();
         return s;
+    }
+
+    public void setCheckBoxColor(View view){
+        if(cb1.isChecked()){
+            cb1.setTextColor(Color.GREEN);
+            cb1.setBackgroundColor(Color.WHITE);
+        }
+        if(cb2.isChecked()){
+            cb2.setTextColor(Color.GREEN);
+            cb2.setBackgroundColor(Color.WHITE);
+        }
+        if(cb3.isChecked()){
+            cb3.setTextColor(Color.GREEN);
+            cb3.setBackgroundColor(Color.WHITE);
+        }
+        if(cb4.isChecked()){
+            cb4.setTextColor(Color.GREEN);
+            cb4.setBackgroundColor(Color.WHITE);
+        }
+    }
+
+    public void setCheckBoxToDefault(View view){
+        cb1.setBackgroundColor(0);
+        cb2.setBackgroundColor(0);
+        cb3.setBackgroundColor(0);
+        cb4.setBackgroundColor(0);
+        cb1.setTextColor(getResources().getColor(R.color.radioButtonColor));
+        cb2.setTextColor(getResources().getColor(R.color.radioButtonColor));
+        cb3.setTextColor(getResources().getColor(R.color.radioButtonColor));
+        cb4.setTextColor(getResources().getColor(R.color.radioButtonColor));
+        cb1.setChecked(false);
+        cb2.setChecked(false);
+        cb3.setChecked(false);
+        cb4.setChecked(false);
     }
 }

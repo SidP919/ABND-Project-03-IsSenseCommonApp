@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00ffc7"
+    android:background="@color/colorPrimaryDark"
     tools:context="com.example.android.senseiscommon.MainActivity">
 
     <RelativeLayout
@@ -15,16 +15,21 @@
         android:focusableInTouchMode="true">
 
         <LinearLayout
-            android:id="@+id/your_name_LinearLayout"
+            android:id="@+id/main_LinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:orientation="vertical">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:background="#f3a6ff"
-            android:layout_margin="4dp">
+            android:background="@color/colorPrimaryLight"
+            android:layout_margin="16dp">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
                 android:text="@string/your_name"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:gravity="center"/>
@@ -32,16 +37,16 @@
                 android:id="@+id/your_name"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3.5"
+                android:layout_weight="3"
                 android:hint="@string/your_name_hint"
-                android:inputType="textCapWords"/>
+                android:inputType="textCapWords"
+                android:gravity="center"/>
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/start_quiz_LinearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/your_name_LinearLayout"
             android:orientation="vertical">
 
 
@@ -55,7 +60,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/heading1"
                 android:gravity="center"
-                android:textColor="#dc00ff"
+                android:textColor="@color/colorPrimaryLight"
                 android:textStyle="bold"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:layout_margin="16dp"/>
@@ -65,7 +70,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/subHeading1"
                 android:gravity="center"
-                android:textColor="#dc00ff"
+                android:textColor="@color/colorPrimary"
                 android:textAppearance="?android:textAppearanceSmall"
                 android:layout_margin="4dp"/>
         </LinearLayout>
@@ -74,23 +79,22 @@
             android:id="@+id/start_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/start_quiz_LinearLayout"
-            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
             android:text="@string/start"
             android:textAppearance="?android:textAppearanceLarge"
             android:layout_margin="16dp"
-            android:textColor="#ffffff"
-            android:background="#ea65ff"
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimaryLight"
             android:padding="16dp"
             android:visibility="visible"
             android:onClick="startQuiz"/>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/question_answer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/start_quiz_LinearLayout"
-            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
             android:orientation="vertical"
             android:visibility="invisible"
             android:layout_margin="8dp">
@@ -101,48 +105,39 @@
                 android:layout_height="wrap_content"
                 android:padding="4dp"
                 android:text=""
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="#ef0000" />
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@color/myColorAccent" />
             <RadioGroup
                 android:id="@+id/answer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="4dp">
+                android:padding="4dp"
+                android:onClick="setColorGreen">
+                <RadioButton
+                    android:id="@+id/decoy"
+                    android:visibility="invisible"
+                    style="@style/radioButtonTheme"
+                    android:onClick="setColorGreen"/>
                 <RadioButton
                     android:id="@+id/op1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="4dp"
-                    android:textColor="#0000ff"
-                    android:onClick="checkRB"/>
+                    style="@style/radioButtonTheme"
+                    android:onClick="setColorGreen"/>
                 <RadioButton
                     android:id="@+id/op2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="4dp"
-                    android:textColor="#0000ff"
-                    android:onClick="checkRB"/>
+                    style="@style/radioButtonTheme"
+                    android:onClick="setColorGreen"/>
                 <RadioButton
                     android:id="@+id/op3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="4dp"
-                    android:textColor="#0000ff"
-                    android:onClick="checkRB"/>
+                    style="@style/radioButtonTheme"
+                    android:onClick="setColorGreen"/>
                 <RadioButton
                     android:id="@+id/op4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="4dp"
-                    android:textColor="#0000ff"
-                    android:onClick="checkRB"/>
+                    style="@style/radioButtonTheme"
+                    android:onClick="setColorGreen"/>
                 <RadioButton
                     android:id="@+id/op5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="4dp"
-                    android:textColor="#0000ff"
-                    android:onClick="checkRB"/>
+                    style="@style/radioButtonTheme"
+                    android:onClick="setColorGreen"/>
             </RadioGroup>
 
             <Button
@@ -151,19 +146,106 @@
                 android:text="@string/submitButton"
                 android:textStyle="bold"
                 android:layout_gravity="center|bottom"
-                android:visibility="visible"
                 android:layout_margin="8dp"
-                android:padding="4dp"
-                android:textColor="#fdf8f8"
-                android:backgroundTint="#ff6767"
+                android:padding="16dp"
+                android:textColor="@android:color/white"
+                android:background="@color/myColorAccent"
+                android:textAppearance="?android:textAppearanceLarge"
                 android:onClick="submitAns"/>
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ET_question_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:visibility="invisible"
+            android:layout_margin="8dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/question3"
+                android:padding="4dp"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@color/myColorAccent" />
+            <EditText
+                android:id="@+id/q3ansEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/radioButtonTheme"
+                android:hint="@string/q3ansHint"
+                android:padding="16dp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/submitButton"
+                android:textStyle="bold"
+                android:layout_gravity="center|bottom"
+                android:layout_margin="8dp"
+                android:padding="16dp"
+                android:textColor="@android:color/white"
+                android:background="@color/myColorAccent"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:onClick="submitAns"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/CB_question_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:visibility="invisible"
+            android:layout_margin="8dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/question4"
+                android:padding="4dp"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@color/myColorAccent" />
+            <CheckBox
+                android:id="@+id/cb1"
+                android:text="@string/q4o1"
+                style="@style/radioButtonTheme"
+                android:onClick="setCheckBoxColor"/>
+            <CheckBox
+                android:id="@+id/cb2"
+                android:text="@string/q4o2"
+                style="@style/radioButtonTheme"
+                android:onClick="setCheckBoxColor"/>
+            <CheckBox
+                android:id="@+id/cb3"
+                android:text="@string/q4o3"
+                style="@style/radioButtonTheme"
+                android:onClick="setCheckBoxColor"/>
+            <CheckBox
+                android:id="@+id/cb4"
+                android:text="@string/q4o4"
+                style="@style/radioButtonTheme"
+                android:onClick="setCheckBoxColor"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/submitButton"
+                android:textStyle="bold"
+                android:layout_gravity="center|bottom"
+                android:layout_margin="8dp"
+                android:padding="16dp"
+                android:textColor="@android:color/white"
+                android:background="@color/myColorAccent"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:onClick="submitAns"/>
+        </LinearLayout>
+
         <LinearLayout
             android:id="@+id/result"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_below="@id/start_quiz_LinearLayout"
             android:visibility="invisible"
             android:layout_margin="8dp"
             android:gravity="center">
@@ -172,26 +254,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/result"
-                android:textColor="#0000ff"/>
+                android:textColor="@color/radioButtonColor"/>
             <ImageView
                 android:id="@+id/result_image"
                 android:layout_width="300dp"
                 android:layout_height="150dp"
-                android:scaleType="fitCenter"/>
+                android:scaleType="fitCenter"
+                android:contentDescription="@string/imgColorDescription"/>
             <TextView
                 android:id="@+id/summary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="#009700"
+                android:textColor="@color/green"
                 android:gravity="center"
                 android:textAppearance="?android:textAppearanceMedium"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:textColor="#ffffff"
-                android:background="#ea65ff"
+                android:textColor="@android:color/white"
+                android:background="@color/colorPrimary"
                 android:padding="16dp"
                 android:text="@string/reset"
                 android:textStyle="bold"

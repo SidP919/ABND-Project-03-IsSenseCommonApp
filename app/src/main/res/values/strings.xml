@@ -9,7 +9,7 @@
     <string name="submitButton">SUBMIT</string>
 
     <!-- Questions for the quiz -->
-    <string name="question1" id="1">1- A plane crashes on the United States/Canada border. Where are the survivors buried?</string>
+    <string name="question1">1- A plane crashes on the United States/Canada border. Where are the survivors buried?</string>
     <string name="q1o1">They aren\'t</string>
     <string name="q1o2">The United States</string>
     <string name="q1o3">Canada</string>
@@ -22,17 +22,16 @@
     <string name="q2o3">All of the above</string>
     <string name="q2o4">Nothing</string>
 
-    <string name="question3">3- A farmer has 13 cows. A bolt of lightning kills all but 5 of them. How many cows survived?</string>
-    <string name="q3o1">Five</string>
-    <string name="q3o2">Zero</string>
-    <string name="q3o3">Eight</string>
-    <string name="q3o4">Thirteen</string>
-    <string name="q3o5">None of the Above</string>
+    <string name="question3">3- A farmer has 13 cows. A bolt of lightning kills all but 5 of them. How many cows survived
+        ?(Answer by just entering the number)</string>
+    <string name="q3ansHint">Enter an integer For ex: 5</string>
 
-    <string name="question4">4- You enter a room. You have 1 matchstick. You are about to nearly freeze to death and starve. In the room you find good meat and dough. There is a gas stove, a fireplace with wood, and a lantern. What do you light first?</string>
-    <string name="q4o1">STOVE</string>
-    <string name="q4o2">FIRE PLACE</string>
-    <string name="q4o3">NONE OF ABOVE</string>
+    <string name="question4">4- If there is an Arithmetic expression \"4 Op 5 = x\" and
+        Op is one of the two operators: * and + then what can be the possible values of x?</string>
+    <string name="q4o1">20</string>
+    <string name="q4o2">0</string>
+    <string name="q4o3">1</string>
+    <string name="q4o4">9</string>
 
     <string name="question5">5- How many times can you take 5 from 25?</string>
     <string name="q5o1">5</string>
@@ -75,6 +74,7 @@
     <string name="q10o5">None of the above</string>
     
     <string name="result">Here is your RESULT</string>
+    <string name="imgColorDescription">An image which is based on your score</string>
     
     <string name="if100Toast">WOW! Excellent</string>
     <string name="if100">You are really amazing! You got all the questions right!
