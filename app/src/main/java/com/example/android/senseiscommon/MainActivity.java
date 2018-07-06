@@ -139,11 +139,13 @@ public class MainActivity extends AppCompatActivity{
 
                     quesAnsLinearLayout.setVisibility(View.INVISIBLE);
                     editTextQuesAns.setVisibility(View.VISIBLE);
+                    q3ans.setText("");
                 }
                 break;
                 case 3: {
                     i++;
-                    if(Integer.parseInt(q3ans.getText().toString()) == 5){
+                    String s = q3ans.getText().toString();
+                    if ((!s.isEmpty()) && (Integer.parseInt(q3ans.getText().toString()) == 5)) {
                         ++noOfCorrectAnswers;
                     }
                     q3ans.setText("");
@@ -329,26 +331,38 @@ public class MainActivity extends AppCompatActivity{
 
     private String NameEntered(){
         EditText nameView = findViewById(R.id.your_name);
-        String s = nameView.getText().toString();
-        return s;
+        return nameView.getText().toString();
+
     }
 
     public void setCheckBoxColor(View view){
         if(cb1.isChecked()){
             cb1.setTextColor(Color.GREEN);
             cb1.setBackgroundColor(Color.WHITE);
+        } else {
+            cb1.setTextColor(getResources().getColor(R.color.radioButtonColor));
+            cb1.setBackgroundColor(0);
         }
         if(cb2.isChecked()){
             cb2.setTextColor(Color.GREEN);
             cb2.setBackgroundColor(Color.WHITE);
+        } else {
+            cb2.setTextColor(getResources().getColor(R.color.radioButtonColor));
+            cb2.setBackgroundColor(0);
         }
         if(cb3.isChecked()){
             cb3.setTextColor(Color.GREEN);
             cb3.setBackgroundColor(Color.WHITE);
+        } else {
+            cb3.setTextColor(getResources().getColor(R.color.radioButtonColor));
+            cb3.setBackgroundColor(0);
         }
         if(cb4.isChecked()){
             cb4.setTextColor(Color.GREEN);
             cb4.setBackgroundColor(Color.WHITE);
+        } else {
+            cb4.setTextColor(getResources().getColor(R.color.radioButtonColor));
+            cb4.setBackgroundColor(0);
         }
     }
 
